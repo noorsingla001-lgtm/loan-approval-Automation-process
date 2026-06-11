@@ -1,123 +1,193 @@
-🏦 AI-Powered Loan Approval Automation using n8n
-📌 Project Overview
+# 🏦 AI-Powered Loan Approval Automation using n8n
 
-This project is an AI-Powered Loan Approval Automation System built using n8n, Google Sheets, and Gmail. The workflow automatically evaluates loan applications, classifies applicants into Low Risk, Medium Risk, or High Risk categories, updates the decision in Google Sheets, and sends personalized email notifications to applicants.
+An end-to-end loan processing automation workflow built using **n8n**, **Google Sheets**, **JavaScript**, and **Gmail**. This project automates loan evaluation, risk classification, decision-making, record updates, and customer notifications without manual intervention.
 
-The system simulates a real-world banking loan approval process by analyzing applicant financial data and making automated decisions based on predefined risk assessment rules.
+---
 
-🚀 Features
+## 🚀 Project Overview
 
-✅ Automated Loan Risk Assessment
+Financial institutions receive numerous loan applications daily. Manually reviewing each application can be time-consuming and error-prone. This workflow automates the process by analyzing applicant data, assigning a risk level, updating records, and sending personalized email notifications.
 
-✅ Classification into:
+The system classifies applicants into:
 
-Low Risk → Loan Approved
-Medium Risk → Under Review
-High Risk → Loan Rejected
+* 🟢 Low Risk → Approved
+* 🟡 Medium Risk → Under Review
+* 🔴 High Risk → Rejected
 
-✅ Real-time Google Sheets Integration
+---
 
-✅ Automated Gmail Notifications
+## 🛠️ Technologies Used
 
-✅ Dynamic Decision-Based Routing
+* **n8n** – Workflow Automation
+* **Google Sheets** – Applicant Data Storage
+* **JavaScript** – Risk Assessment Logic
+* **Gmail** – Automated Email Notifications
 
-✅ No-Code Workflow Automation using n8n
+---
 
-🛠️ Tech Stack
-n8n – Workflow Automation
-Google Sheets – Loan Applicant Database
-Gmail API – Automated Email Notifications
-JavaScript (Code Node) – Risk Calculation Logic
-📊 Dataset Attributes
+## 📊 Workflow Architecture
 
-The loan dataset contains applicant information such as:
+![Workflow](screenshots/n8n-workflow.png)
 
-Loan ID
-Applicant Name
-Credit Score
-Annual Income
-Loan Amount
-Debt-to-Income Ratio
-Residence Years
-Active Loans
-Credit Card Outstanding
-Previous Defaults
-Bank Account Age
-Property Ownership
-Dependents
-Collateral Value
-FOIR Percentage
-Risk Level
-Loan Status
-🔄 Workflow Process
-Step 1: Read Loan Applications
+### Workflow Steps
 
-The workflow fetches applicant records from Google Sheets.
+1. Read loan applicant data from Google Sheets.
+2. Execute JavaScript-based risk assessment.
+3. Classify applicants into Low, Medium, or High Risk.
+4. Route records through conditional logic.
+5. Update loan status in Google Sheets.
+6. Send automated email notifications.
 
-Step 2: Risk Assessment
+---
 
-A JavaScript Code Node evaluates applicant financial data and calculates risk levels.
+## 📋 Dataset Structure
 
-Step 3: Decision Routing
-🟢 Low Risk
-Loan Approved
-Status updated in Google Sheets
-Approval email sent automatically
-🟡 Medium Risk
-Loan marked "Under Review"
-Requires manual verification
-Review notification email sent
-🔴 High Risk
-Loan Rejected
-Rejection reason generated
-Rejection email sent automatically
-Step 4: Update Records
+![Dataset](screenshots/google-sheet.png)
 
-The final loan decision is written back to Google Sheets.
+The dataset contains important applicant details such as:
 
-Step 5: Send Email Notification
+* Loan ID
+* Applicant Name
+* Credit Score
+* Annual Income
+* Loan Amount
+* Debt-to-Income Ratio
+* Residence Years
+* Active Loans
+* Credit Card Outstanding
+* Previous Defaults
+* Property Ownership
+* Dependents
+* Collateral Value
+* FOIR Percentage
+* Risk Level
+* Loan Status
 
-Applicants receive personalized email notifications based on their loan status.
+---
 
-📧 Automated Email Templates
-🟢 Loan Approved
-Credit profile verified
-Low risk classification
-Eligible for automatic approval
-Documentation process initiated
-🟡 Loan Under Review
-Additional verification required
-Manual assessment needed
-Income and credit profile review pending
-🔴 Loan Rejected
-High-risk applicant detected
-Credit score below threshold
-Repayment capacity insufficient
-Recommended improvement actions provided
-📸 Project Screenshots
-Workflow Architecture
+## 🟢 Low Risk – Loan Approved
 
-Google Sheets Dataset
+![Loan Approved](screenshots/loan-approved.png)
 
-Loan Approved Email
+### Approval Conditions
 
-Loan Under Review Email
+* Strong credit score
+* Low debt obligations
+* No previous defaults
+* Good repayment capacity
 
-Loan Rejected Email
+### Automated Actions
 
-🎯 Business Benefits
-Reduces manual loan processing effort
-Improves decision consistency
-Accelerates approval turnaround time
-Enhances customer communication
-Supports scalable loan operations
-📈 Future Enhancements
-Machine Learning-based Credit Scoring
-Integration with Banking APIs
-PDF Loan Approval Reports
-Dashboard & Analytics
-Real-Time Applicant Portal
-👨‍💻 Author
+* Loan status updated to **Approved**
+* Applicant receives approval email
+* Processing moves to documentation stage
 
-Noor Singla
+---
+
+## 🟡 Medium Risk – Under Review
+
+![Loan Under Review](screenshots/loan-under-review.png)
+
+### Review Conditions
+
+* Moderate credit profile
+* Additional verification required
+* Borderline eligibility criteria
+
+### Automated Actions
+
+* Loan status updated to **Under Review**
+* Review notification email sent
+* Application escalated for manual assessment
+
+---
+
+## 🔴 High Risk – Loan Rejected
+
+![Loan Rejected](screenshots/loan-rejected.png)
+
+### Rejection Conditions
+
+* Low credit score
+* High debt burden
+* Multiple risk indicators
+* Insufficient repayment capacity
+
+### Automated Actions
+
+* Loan status updated to **Rejected**
+* Rejection email sent automatically
+* Improvement recommendations provided
+
+---
+
+## 📧 Email Automation
+
+The workflow generates personalized email notifications for each loan decision category:
+
+### Approval Email
+
+* Loan approved confirmation
+* Risk assessment summary
+* Next processing steps
+
+### Review Email
+
+* Additional verification request
+* Assessment status notification
+* Pending review details
+
+### Rejection Email
+
+* Rejection notification
+* Risk analysis summary
+* Recommendations for future applications
+
+---
+
+## 💡 Business Benefits
+
+* Reduces manual processing effort
+* Improves decision consistency
+* Faster application turnaround time
+* Automated customer communication
+* Scalable loan assessment process
+* Enhanced operational efficiency
+
+---
+
+## 🔮 Future Enhancements
+
+* Machine Learning-Based Credit Scoring
+* Banking API Integration
+* Real-Time Dashboard
+* PDF Report Generation
+* Customer Self-Service Portal
+* Predictive Risk Analytics
+
+---
+
+## 📂 Repository Structure
+
+```bash
+├── screenshots
+│   ├── n8n-workflow.png
+│   ├── google-sheet.png
+│   ├── loan-approved.png
+│   ├── loan-under-review.png
+│   └── loan-rejected.png
+├── workflow.json
+└── README.md
+```
+
+---
+
+## 👨‍💻 Author
+
+**Noor Singla**
+
 MBA (Finance) | AI Automation & Workflow Enthusiast
+
+---
+
+⭐ If you found this project useful, please consider giving the repository a star.
